@@ -56,8 +56,8 @@ function ThemeButton() {
         whileHover={{ scale: 1.2 }}
         transition={{ type: 'spring', stiffness: 1000, damping: 80 }}
         className={`m-auto flex h-9 w-[4rem] items-center  shadow-md transition-colors ${
-          theme === 'dark' ? 'justify-end' : 'justify-start bg-[#33a656]'
-        } rounded-full bg-black p-[0.3rem] opacity-75 `}
+          theme === 'dark' ? 'justify-end bg-black' : 'justify-start bg-[#33a656]'
+        } rounded-full  p-[0.3rem] opacity-75 `}
         onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
       >
         <motion.div

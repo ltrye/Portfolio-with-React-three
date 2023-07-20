@@ -101,9 +101,57 @@ export default function AboutMe() {
             opportunities to grow my skills. I believe that by combining my creativity with my
             technical expertise, I can create truly exceptional user experiences.
             <br />
+            <br />
             Whether it's designing a stunning website, developing an intuitive user interface, or
             crafting engaging motion graphics, I am always striving to push the boundaries of what
             is possible.
+            <br />
+            <br />
+            Skills:
+            <br />
+            <br />
+            1. JavaScript (Node.js): Expert level in building scalable and efficient backend web
+            applications using Node.js, Express, and other related frameworks.
+            <br />
+            <br />
+            2. Python (AI and Data Analysis): Proficient in Python for AI development, machine
+            learning, and data analysis. Skilled in utilizing libraries such as TensorFlow, PyTorch,
+            and Scikit-learn for creating intelligent systems and deriving insights from data.
+            <br />
+            <br />
+            3. Java (Android Development): Strong proficiency in Java for Android app development,
+            creating intuitive and user-friendly mobile applications.
+            <br />
+            <br />
+            4. Ruby on Rails: Skilled in developing web applications with Ruby on Rails, leveraging
+            its convention-over-configuration principles for rapid development.
+            <br />
+            <br />
+            5. TypeScript (Frontend Development): Advanced knowledge of TypeScript for frontend
+            development, building scalable and maintainable web applications with React or Angular.
+            <br />
+            <br />
+            6. Swift (iOS Development): Strong understanding of Swift for iOS app development,
+            creating feature-rich and performant mobile applications for Apple devices.
+            <br />
+            <br />
+            7. C++ (Game Development): Proficient in C++ for game development, using popular game
+            engines like Unity or Unreal Engine to create interactive and immersive gaming
+            experiences.
+            <br />
+            <br />
+            8. C# (Unity Game Development): Experienced in C# for Unity game development,
+            implementing game mechanics, and optimizing game performance.
+            <br />
+            <br />
+            9. Java (LibGDX Game Development): Skilled in using Java with LibGDX framework for
+            cross-platform game development, enabling deployment on multiple platforms.
+            <br />
+            <br />
+            10. JavaScript (Game Development): Proficient in JavaScript game development, using
+            frameworks like Phaser or Three.js to create browser-based games and interactive
+            experiences.
+            <br />
             {/* <p className="tracking-[0.03rem] leading-[1.7rem]">
           Browse through my projects and experience the magic of web development.
         </p> */}
