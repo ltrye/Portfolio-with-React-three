@@ -1,0 +1,10 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "trye",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "author": "ltrha",
+  "license": "ISC"
+}
