@@ -81,7 +81,7 @@ const app = express();
 //   )
 // );
 //MIDDLEWARE STATIC FILE
-app.use(express.static(path.resolve(__dirname, "dist")));
+app.use(express.static(path.resolve(__dirname, "../dist")));
 
 app.route("/").get((req, res) => {
   console.log(path.join(__dirname, "index.html"));
