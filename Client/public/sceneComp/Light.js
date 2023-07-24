@@ -39,16 +39,22 @@ export default function Light() {
   const ambientLight = useRef(null);
   const startTime = performance.now();
   useEffect(() => {
-    sunLight.current.color = {
-      r: 0.16862745098039217,
-      g: 0.22745098039215686,
-      b: 0.4117647058823529,
-    };
+    sunLight.current.color =
+      theme === 'dark'
+        ? {
+            r: 0.16862745098039217,
+            g: 0.22745098039215686,
+            b: 0.4117647058823529,
+          }
+        : {
+            r: 1,
+            g: 1,
+            b: 1,
+          };
   }, []);
   useEffect(() => {
     const duration = 220;
-    console.log(sunLight.current.color);
-    console.log(ambientLight.current.intensity);
+
     function changeLight(currentTime) {
       const elapsedTime = currentTime - startTime;
       if (elapsedTime <= duration) {
@@ -75,7 +81,7 @@ export default function Light() {
         </mesh>
       </pointLight>
 
-      <ambientLight ref={ambientLight} color="#B9F3FC" intensity={0.3} />
+      <ambientLight ref={ambientLight} color="#B9F3FC" intensity={theme === 'dark' ? 0.3 : 0.8} />
       <directionalLight
         ref={sunLight}
         castShadow

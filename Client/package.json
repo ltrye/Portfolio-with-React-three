@@ -30,6 +30,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "js-cookie": "^3.0.5",
     "postcss": "^8.4.21",
     "postcss-loader": "^7.2.4",
     "prettier": "^2.8.8",

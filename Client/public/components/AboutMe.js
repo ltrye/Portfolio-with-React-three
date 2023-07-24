@@ -51,9 +51,9 @@ export default function AboutMe() {
         <section className=" relative mt-[6rem] flex flex-col  items-center ">
           <motion.svg
             className=" mt-[6rem] h-[20rem] w-[20rem]  drop-shadow-lg"
-            initial={{ x: -100, scale: 1 }}
+            initial={window.innerWidth < 789 ? { x: 0, scale: 1 } : { x: -100, scale: 1 }}
             transition={{ duration: 0.7, ease: [1, 0.0, 0.3, 1.0] }}
-            whileInView={{ x: 0 }}
+            whileInView={!window.innerWidth < 789 && { x: 0 }}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 2000 2000"
             id="web-development"

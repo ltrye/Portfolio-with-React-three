@@ -14,7 +14,7 @@ const lightTheme = {
 };
 
 export default function Floor() {
-  console.log('FLOOR TRIGGER!');
+  console.log('Trigger!');
   const { theme } = useContext(ThemeContext);
   const [isFirstTrigger, setIsFirstTrigger] = useState(true);
   const floor = useRef(null);
@@ -43,12 +43,20 @@ export default function Floor() {
     scene.add(particles);
   }, []);
 
+  //Initial color base on cookies
   useEffect(() => {
-    floor.current.material.color = {
-      b: 0.2784313725490196,
-      g: 0.14901960784313725,
-      r: 0.0392156862745098,
-    };
+    floor.current.material.color =
+      theme === 'dark'
+        ? {
+            b: 0.2784313725490196,
+            g: 0.14901960784313725,
+            r: 0.0392156862745098,
+          }
+        : {
+            r: 0.00972121731707524,
+            g: 0.3864294337766795,
+            b: 0.6172065624120635,
+          };
     setIsFirstTrigger(false);
   }, []);
   useEffect(() => {
