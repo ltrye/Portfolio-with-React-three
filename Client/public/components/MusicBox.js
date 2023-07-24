@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { HiVolumeOff, HiVolumeUp } from 'react-icons/hi';
 import m1 from '../assets/m1.mp3';
 import m2 from '../assets/m2.mp3';
 import m3 from '../assets/m3.mp3';
-
-import { HiVolumeOff, HiVolumeUp } from 'react-icons/hi';
 
 const music = [
   { name: 'trye1', description: 'tryetrye', src: m1 },
@@ -75,7 +74,11 @@ export default function MusicBox() {
     setMusic(i);
   };
   return (
-    <div className=" relative z-30 float-right mr-3 mt-[9vh] h-[17rem] w-[3.5rem]  ">
+    <div
+      className={`relative ${
+        !isOpen && 'pointer-events-none'
+      } z-30 float-right mr-3 mt-[9vh] h-[17rem] w-[3.5rem]`}
+    >
       {isOpen && (
         <div className="absolute top-[-3rem] flex h-[2rem] w-full justify-center  ">
           {isMute ? (
@@ -119,13 +122,12 @@ export default function MusicBox() {
           ''
         )}
       </motion.div>
-
       <motion.div
         key="Mini"
         onClick={() => {
           setOpen(!isOpen);
         }}
-        className={`pointer-events-auto absolute float-left mr-6 h-14 w-14 cursor-pointer select-none rounded-full border-[3px] border-solid border-[#0000007f] transition-colors  bg-[${
+        className={`pointer-events-auto absolute float-left mr-6 h-14 w-14 cursor-pointer select-none rounded-full border-[3px] border-solid border-[#0000007f] transition-colors duration-100 focus:border-[#0000007f] focus:outline-none  bg-[${
           isOpen ? '#3c486b' : '#3c486b87'
         }] shadow-md`}
         whileTap={{ scale: 0.8 }}
@@ -148,7 +150,8 @@ export default function MusicBox() {
           />
         </svg>
       </motion.div>
-      <audio key={bgMusic} muted={isMute && true} preload="auto" playsinline autoPlay loop>
+      {/*eslint-disable-next-line jsx-a11y/media-has-caption*/}
+      <audio key={bgMusic} muted={isMute && true} preload="auto" autoPlay loop>
         <source src={`${music[bgMusic].src}`} type="audio/mpeg" />
       </audio>
     </div>

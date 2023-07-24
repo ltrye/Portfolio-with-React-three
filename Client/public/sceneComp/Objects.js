@@ -9,17 +9,17 @@ export default function Objects() {
   const point = useRef();
   const nav = useSnapshot(state);
 
-  const cam = useThree((state) => state.camera);
+  const cam = useThree((thisCam) => thisCam.camera);
   const close = new Vector3(0, 1, 0);
 
   useFrame(() => {
     cam.lookAt(point.current.position);
     const open = new Vector3(window.innerWidth / window.innerHeight, 1, 0);
-    {
-      nav.nav === 'About' && window.innerWidth >= 1024
-        ? point.current.position.lerp(open, 0.025)
-        : point.current.position.lerp(close, 0.025);
-    }
+
+    point.current.position.lerp(
+      nav.nav === 'About' && window.innerWidth >= 1024 ? open : close,
+      0.025
+    );
   });
 
   return (

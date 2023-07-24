@@ -45,7 +45,7 @@ module.exports = {
       //   type: 'asset/resource',
       // },
       {
-        test: /\.(gltf|bin|glb|png|jpeg|mp3)$/i,
+        test: /\.(gltf|bin|glb|png|jpeg|mp3|ico)$/i,
         type: 'asset/resource',
       },
     ],

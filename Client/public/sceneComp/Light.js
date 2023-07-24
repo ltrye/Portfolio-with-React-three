@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 
 import ThemeContext from '../src/ThemeContext';
 //////////////////////////
@@ -28,7 +28,10 @@ function setColor(target, intense, scheme, targetScheme, rate) {
   };
   intense.current.intensity = scheme.ambient + (targetScheme.ambient - scheme.ambient) * rate;
 }
+let firstMount = true;
 export default function Light() {
+  console.log('LIGHT TRIGGER!');
+
   // const { colorNow } = useControls({ colorNow: { r: 0, g: 0, b: 0 } });
   // const { ambiance } = useControls({ ambiance: 0.3 });
   const { theme } = useContext(ThemeContext);
@@ -36,8 +39,16 @@ export default function Light() {
   const ambientLight = useRef(null);
   const startTime = performance.now();
   useEffect(() => {
+    sunLight.current.color = {
+      r: 0.16862745098039217,
+      g: 0.22745098039215686,
+      b: 0.4117647058823529,
+    };
+  }, []);
+  useEffect(() => {
     const duration = 220;
-
+    console.log(sunLight.current.color);
+    console.log(ambientLight.current.intensity);
     function changeLight(currentTime) {
       const elapsedTime = currentTime - startTime;
       if (elapsedTime <= duration) {
@@ -49,8 +60,11 @@ export default function Light() {
       }
     }
 
-    requestAnimationFrame(changeLight);
-  });
+    if (!firstMount) {
+      requestAnimationFrame(changeLight);
+    }
+    firstMount = false;
+  }, [theme]);
 
   return (
     <>
@@ -61,10 +75,9 @@ export default function Light() {
         </mesh>
       </pointLight>
 
-      <ambientLight ref={ambientLight} color="#B9F3FC" intensity={1} />
+      <ambientLight ref={ambientLight} color="#B9F3FC" intensity={0.3} />
       <directionalLight
         ref={sunLight}
-        color={lightScheme}
         castShadow
         intensity={0.75}
         position={[-3, 5, -3]}

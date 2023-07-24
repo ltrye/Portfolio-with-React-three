@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from 'react';
+import React, { useRef, useEffect, useContext, useState } from 'react';
 import { Points, BufferGeometry, BufferAttribute, PointsMaterial } from 'three';
 import { useThree } from '@react-three/fiber';
 
@@ -7,14 +7,18 @@ import colorAnimation from '../utils/colorAnimation';
 import hexConverter from '../utils/hexToRGB';
 
 const darkTheme = hexConverter('#0A2647');
-const lightTheme = hexConverter('#19A7CE');
+const lightTheme = {
+  r: 0.00972121731707524,
+  g: 0.3864294337766795,
+  b: 0.6172065624120635,
+};
 
 export default function Floor() {
+  console.log('FLOOR TRIGGER!');
   const { theme } = useContext(ThemeContext);
-
+  const [isFirstTrigger, setIsFirstTrigger] = useState(true);
   const floor = useRef(null);
   const scene = useThree((state) => state.scene);
-
   useEffect(() => {
     const particlesCount = 2300;
     const positions = new Float32Array(particlesCount * 3);
@@ -40,13 +44,24 @@ export default function Floor() {
   }, []);
 
   useEffect(() => {
-    if (theme === 'dark') colorAnimation(250, floor, lightTheme, darkTheme);
-    else colorAnimation(220, floor, darkTheme, lightTheme);
+    floor.current.material.color = {
+      b: 0.2784313725490196,
+      g: 0.14901960784313725,
+      r: 0.0392156862745098,
+    };
+    setIsFirstTrigger(false);
+  }, []);
+  useEffect(() => {
+    // console.log(floor.current.material.color);
+    if (!isFirstTrigger) {
+      if (theme === 'dark') colorAnimation(250, floor, lightTheme, darkTheme);
+      else colorAnimation(220, floor, darkTheme, lightTheme);
+    }
   }, [theme]);
   return (
-    <mesh ref={floor} rotation={[-Math.PI / 2, 0, 0]}>
+    <mesh ref={floor} receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
       <planeBufferGeometry attach="geometry" args={[30, 30]} />
-      <meshLambertMaterial shininess={0} color="#19A7CE" />
+      <meshLambertMaterial shininess={0} />
     </mesh>
   );
 }

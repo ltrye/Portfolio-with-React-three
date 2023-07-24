@@ -13,6 +13,7 @@ import Projects from '../components/Projects';
 
 //PROXY
 import { state } from './CamChange';
+import GameUI from '../components/GameUI';
 
 export default function Overlay() {
   const [nav, setNav] = useState('Home');
@@ -24,8 +25,9 @@ export default function Overlay() {
   return (
     <div>
       <NavBar nav={nav} handleNav={changeNav} />
-      <AnimatePresence>{nav === 'About' ? <AboutMe /> : ''}</AnimatePresence>
-      <AnimatePresence>{nav === 'Projects' ? <Projects /> : ''}</AnimatePresence>
+      <AnimatePresence>{nav === 'About' && <AboutMe />}</AnimatePresence>
+      <AnimatePresence>{nav === 'Projects' && <Projects />}</AnimatePresence>
+      <GameUI />
       <MusicBox />
       <Contact />
     </div>
@@ -35,12 +37,12 @@ export default function Overlay() {
 function Contact() {
   return (
     <motion.div
-      initial={{ clipPath: 'inset(0% 60% 0% 0% round 50px)' }}
+      initial={{ clipPath: 'inset(0% 70% 0% 0% round 50px)' }}
       whileHover={{ clipPath: 'inset(0% 0% 0% 0% round 50px ' }}
-      className=" absolute bottom-4 ml-5 flex h-[2.7rem] w-[18rem]  items-center justify-start rounded-full bg-black pl-4   text-white"
+      className=" absolute bottom-2 ml-2 flex h-[2.7rem] w-[18rem]  items-center justify-start rounded-xl bg-black pl-4   text-white"
     >
       <span className=" relative  inline-block ">Contact</span>
-      <GiThreeLeaves className="mb-1 ml-3 h-6 w-6 " />
+      {/* <GiThreeLeaves className="mb-1 ml-3 h-6 w-6 " /> */}
       <a rel="noreferrer" target="_blank" href="https://www.linkedin.com/in/ltrha/" b>
         <AiFillLinkedin className="ml-4 h-7 w-7 transition-all hover:scale-125" />
       </a>

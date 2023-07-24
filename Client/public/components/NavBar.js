@@ -11,7 +11,7 @@ export default function NavBar({ nav, handleNav }) {
   return (
     <div className=" h-25 grid-rows-5-2 grid  ">
       <motion.div
-        className="relative   m-auto mt-2 flex h-[4.8rem] w-[22rem] shrink-0 justify-center overflow-hidden rounded-full bg-black opacity-[80%]"
+        className="relative m-auto   mt-2 flex h-[4.8rem] w-[22rem] shrink-0 justify-center overflow-hidden rounded-full bg-black opacity-[80%] focus:outline-none"
         whileTap={{ scale: 0.9 }}
         transition={{ type: 'spring', stiffness: 300, damping: 80 }}
       >
@@ -24,7 +24,7 @@ export default function NavBar({ nav, handleNav }) {
             onClick={() => handleNav(el)}
             className={`relative z-[10] flex ${
               el !== 'Home' && 'w-[10rem] grow'
-            }  h-full w-[7.5rem] cursor-pointer flex-col items-center pt-6  font-sans text-lg font-thin text-white transition duration-[250ms]  md:hover:bg-[#ffffff2e] md:active:bg-[#ffffff2e] ${
+            }  h-full w-[7.5rem] cursor-pointer select-none flex-col items-center pt-6  font-sans text-lg font-thin text-white transition duration-[250ms]  md:hover:bg-[#ffffff2e] md:active:bg-[#ffffff2e] ${
               nav !== el && 'opacity-75'
             }`}
           >
@@ -51,7 +51,7 @@ function ThemeButton() {
   const { setTheme, theme } = useContext(ThemeContext);
 
   return (
-    <div className="relative ml-auto mr-auto   mt-3 flex  w-[33%] ">
+    <div className="relative ml-auto mr-auto mt-3   flex w-[33%]  select-none ">
       <motion.div
         whileHover={{ scale: 1.2 }}
         transition={{ type: 'spring', stiffness: 1000, damping: 80 }}
