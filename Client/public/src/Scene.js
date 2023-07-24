@@ -23,7 +23,7 @@ const initArray = [
   { pos: [-1.8, -0.03, 2.0], type: 3, id: 'i5' },
 ];
 //SCENE///////////////////////////////////
-export default function Scene() {
+export default function Scene({ isLoading, setIsLoading }) {
   // const [currCam, switchCam] = useState('Ortho');
   const light = useRef();
   //Theme context
@@ -47,7 +47,7 @@ export default function Scene() {
         <Floor position={[0, 4, 0]} />
 
         <Suspense fallback={null}>
-          <Trye castShadow position={[0, 0, 0]} />
+          <Trye isLoading={isLoading} setIsLoading={setIsLoading} castShadow position={[0, 0, 0]} />
           <Tree plantArray={plantArray} setPlantArray={setPlantArray} castShadow />
         </Suspense>
       </Canvas>

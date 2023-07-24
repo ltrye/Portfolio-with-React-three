@@ -15,7 +15,7 @@ import Projects from '../components/Projects';
 import { state } from './CamChange';
 import GameUI from '../components/GameUI';
 
-export default function Overlay() {
+export default function Overlay({ isLoading }) {
   const [nav, setNav] = useState('Home');
   const changeNav = useCallback((val) => {
     state.nav = val;
@@ -24,6 +24,12 @@ export default function Overlay() {
 
   return (
     <div>
+      {isLoading && (
+        <div className="absolute bottom-0 left-0 z-50 flex h-full w-full items-center justify-center bg-black text-white">
+          <div className="h-[2rem] w-[10rem] animate-spin bg-white" />
+        </div>
+      )}
+
       <NavBar nav={nav} handleNav={changeNav} />
       <AnimatePresence>{nav === 'About' && <AboutMe />}</AnimatePresence>
       <AnimatePresence>{nav === 'Projects' && <Projects />}</AnimatePresence>

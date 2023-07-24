@@ -14,7 +14,7 @@ const move = ['a', 's', 'w', 'd'];
 let isPlanting = false;
 
 //SET THE URL OF GLTF MODEL
-const modelUrl = new URL('./tree.gltf', import.meta.url);
+const modelUrl = new URL('./gltf/tree.gltf', import.meta.url);
 
 // useFrame((state, delta) => {});
 const movement = new Vector3();
@@ -174,4 +174,4 @@ export default function Tree({ plantArray, setPlantArray }) {
     </>
   );
 }
-useGLTF.preload(modelUrl.href);
+// useGLTF.preload(modelUrl.href);

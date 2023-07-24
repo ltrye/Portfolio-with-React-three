@@ -7,10 +7,10 @@ import ThemeContext from '../src/ThemeContext';
 // import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
 
 //SET THE URL OF GLTF MODEL
-const modelUrl = new URL('./ModelNew.gltf', import.meta.url);
+const modelUrl = new URL('./gltf/ModelNew.gltf', import.meta.url);
 
 // useFrame((state, delta) => {});
-export default function Trye() {
+export default function Trye({ setIsLoading }) {
   const { scene } = useGLTF(modelUrl.href);
   const { theme } = useContext(ThemeContext);
   const lamp = useRef();
@@ -50,6 +50,10 @@ export default function Trye() {
   useEffect(() => {
     actions.text.play();
   }, [mixer]);
+  //Remove loading screen
+  useEffect(() => {
+    setIsLoading(false);
+  }, []);
   return <primitive ref={word} castShadow object={scene} />;
 }
-useGLTF.preload(modelUrl.href);
+// useGLTF.preload(modelUrl.href);

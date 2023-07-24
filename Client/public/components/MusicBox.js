@@ -128,8 +128,8 @@ export default function MusicBox() {
           setOpen(!isOpen);
         }}
         className={`pointer-events-auto absolute float-left mr-6 h-14 w-14 cursor-pointer select-none rounded-full border-[3px] border-solid border-[#0000007f] transition-colors duration-100 focus:border-[#0000007f] focus:outline-none ${
-          isOpen ? ' bg-[#3c486b]' : '[#3c486b87]'
-        }shadow-md`}
+          isOpen ? ' bg-[#3c486b]' : 'bg-[#3c486b87]'
+        } shadow-md`}
         whileTap={{ scale: 0.8 }}
         transition={{
           type: 'spring',
