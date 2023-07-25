@@ -13,10 +13,10 @@ const lightTheme = {
   b: 0.6172065624120635,
 };
 
+let isFirstTrigger = true;
 export default function Floor() {
-  console.log('Trigger!');
   const { theme } = useContext(ThemeContext);
-  const [isFirstTrigger, setIsFirstTrigger] = useState(true);
+
   const floor = useRef(null);
   const scene = useThree((state) => state.scene);
   useEffect(() => {
@@ -57,13 +57,13 @@ export default function Floor() {
             g: 0.3864294337766795,
             b: 0.6172065624120635,
           };
-    setIsFirstTrigger(false);
+    isFirstTrigger = false;
   }, []);
   useEffect(() => {
     // console.log(floor.current.material.color);
     if (!isFirstTrigger) {
-      if (theme === 'dark') colorAnimation(250, floor, lightTheme, darkTheme);
-      else colorAnimation(220, floor, darkTheme, lightTheme);
+      if (theme === 'dark') colorAnimation(250, floor, floor.current.material.color, darkTheme);
+      else colorAnimation(220, floor, floor.current.material.color, lightTheme);
     }
   }, [theme]);
   return (

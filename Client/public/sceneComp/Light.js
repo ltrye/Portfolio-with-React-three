@@ -30,14 +30,13 @@ function setColor(target, intense, scheme, targetScheme, rate) {
 }
 let firstMount = true;
 export default function Light() {
-  console.log('LIGHT TRIGGER!');
-
   // const { colorNow } = useControls({ colorNow: { r: 0, g: 0, b: 0 } });
   // const { ambiance } = useControls({ ambiance: 0.3 });
   const { theme } = useContext(ThemeContext);
   const sunLight = useRef(null);
   const ambientLight = useRef(null);
   const startTime = performance.now();
+  //Init color base on Cookies
   useEffect(() => {
     sunLight.current.color =
       theme === 'dark'
@@ -51,6 +50,7 @@ export default function Light() {
             g: 1,
             b: 1,
           };
+    ambientLight.current.intensity = theme === 'dark' ? 0.3 : 0.8;
   }, []);
   useEffect(() => {
     const duration = 220;
@@ -59,8 +59,22 @@ export default function Light() {
       const elapsedTime = currentTime - startTime;
       if (elapsedTime <= duration) {
         const rate = elapsedTime / duration;
-        if (theme === 'dark') setColor(sunLight, ambientLight, lightScheme, darkScheme, rate);
-        else setColor(sunLight, ambientLight, darkScheme, lightScheme, rate);
+        if (theme === 'dark')
+          setColor(
+            sunLight,
+            ambientLight,
+            { ambient: 0.8, color: sunLight.current.color },
+            darkScheme,
+            rate
+          );
+        else
+          setColor(
+            sunLight,
+            ambientLight,
+            { ambient: 0.3, color: sunLight.current.color },
+            lightScheme,
+            rate
+          );
 
         requestAnimationFrame(changeLight);
       }
@@ -81,7 +95,7 @@ export default function Light() {
         </mesh>
       </pointLight>
 
-      <ambientLight ref={ambientLight} color="#B9F3FC" intensity={theme === 'dark' ? 0.3 : 0.8} />
+      <ambientLight ref={ambientLight} color="#B9F3FC" />
       <directionalLight
         ref={sunLight}
         castShadow

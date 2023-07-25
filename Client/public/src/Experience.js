@@ -12,6 +12,7 @@ export default function Experience() {
   const [isLoading, setIsLoading] = useState(true);
   const initTheme = Cookies.get('theme');
   const [theme, setTheme] = useState(!initTheme || initTheme === 'dark' ? 'dark' : 'light');
+  console.log(theme);
   const [selectedTree, setSelectedTree] = useState(0);
   const themeHandle = useMemo(() => ({ theme, setTheme }), [theme]);
   const treeHandle = useMemo(() => ({ selectedTree, setSelectedTree }), [selectedTree]);
