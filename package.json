@@ -7,5 +7,8 @@
     "build": "npm run build --prefix Client"
   },
   "author": "ltrha",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "webpack-cli": "^5.1.4"
+  }
 }
