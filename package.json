@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "trye",
   "scripts": {
-    "start": "node Server/server.js"
+    "start": "node Server/server.js",
+    "build": "webpack --mode production . --prefix Client"
   },
   "author": "ltrha",
   "license": "ISC"
