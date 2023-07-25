@@ -11,9 +11,9 @@ import { useThree } from '@react-three/fiber';
 //SET THE URL OF GLTF MODEL
 
 // useFrame((state, delta) => {});
-let modelUrl;
-// const treeList = ['plant', 'plantmd', 'flower', 'rock'];
+const treeList = ['plant', 'plantmd', 'flower', 'rock'];
 export default function Plant({ position, destroy, type }) {
+  let modelUrl;
   switch (type) {
     case 0:
       modelUrl = new URL('./treeModel/plant.gltf', import.meta.url);
@@ -86,4 +86,7 @@ export default function Plant({ position, destroy, type }) {
     />
   );
 }
+let modelUrl = new URL('./treeModel/plant.gltf', import.meta.url);
+useGLTF.preload(modelUrl.href);
+modelUrl = new URL('./treeModel/plantmd.gltf', import.meta.url);
 useGLTF.preload(modelUrl.href);
