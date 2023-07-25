@@ -33,6 +33,7 @@ export default function AboutMe() {
       <div className=" h-[100%] w-full overflow-scroll">
         <section className=" relative mt-[-5rem]  flex flex-col items-center justify-center gap-y-[-6rem]">
           <motion.img
+            rel="preload"
             initial={{ opacity: 0, scale: 0.4, origin: 'bottom' }}
             whileInView={{ scale: 0.7, opacity: 1 }}
             transition={{ duration: 0.8, ease: [1, 0.0, 0.3, 1.0] }}
