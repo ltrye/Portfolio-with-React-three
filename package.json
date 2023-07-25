@@ -4,7 +4,7 @@
   "description": "trye",
   "scripts": {
     "start": "node Server/server.js",
-    "build": "webpack --mode production . --prefix Client"
+    "build": "npm run build --prefix Client"
   },
   "author": "ltrha",
   "license": "ISC"
