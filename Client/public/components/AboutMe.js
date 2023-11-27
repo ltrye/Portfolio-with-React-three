@@ -42,9 +42,9 @@ export default function AboutMe() {
           />
 
           <span className="relative ml-[2rem] mr-[2rem] block  space-y-6 text-xl font-thin  leading-[2rem] tracking-[0.03rem] text-white">
-            Welcome to my portfolio.
+            {/* Welcome to my portfolio.
             <br /> My name is TRYE.
-            <br />
+            <br /> */}
             🌳🍿🕊️🦊🐑
           </span>
         </section>
@@ -98,7 +98,7 @@ export default function AboutMe() {
             />
           </motion.svg>
           <span className=" ml-[3rem] mr-[3rem] mt-[3rem] inline-block  space-y-6 text-justify  text-base  font-thin text-white">
-            As a web development enthusiast, I am constantly seeking new challenges and
+            {/* As a web development enthusiast, I am constantly seeking new challenges and
             opportunities to grow my skills. I believe that by combining my creativity with my
             technical expertise, I can create truly exceptional user experiences.
             <br />
@@ -151,7 +151,7 @@ export default function AboutMe() {
             <br />
             10. JavaScript (Game Development): Proficient in JavaScript game development, using
             frameworks like Phaser or Three.js to create browser-based games and interactive
-            experiences.
+            experiences. */}
             <br />
             {/* <p className="tracking-[0.03rem] leading-[1.7rem]">
           Browse through my projects and experience the magic of web development.
@@ -180,7 +180,7 @@ export default function AboutMe() {
             </motion.svg>
           </div>
           <span className="text-md relative ml-[3rem] mr-[3rem]  inline-block space-y-6 text-justify font-thin  tracking-[0.05rem] text-white">
-            I invite you to explore my portfolio and get a glimpse into my world of web development.
+            {/* I invite you to explore my portfolio and get a glimpse into my world of web development. */}
             <br />
             Thank you for visiting and I look forward to connecting with you!
           </span>
