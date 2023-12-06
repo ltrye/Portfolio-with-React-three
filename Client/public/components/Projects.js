@@ -2,13 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { motion } from 'framer-motion';
 import ThemeContext from '../src/ThemeContext';
 
-const projects = [
-  { name: 'Web Adventure' },
-  { name: 'Web Dead' },
-  { name: 'Web Time' },
-  { name: 'Web Who' },
-  { name: 'Web Web' },
-];
+const projects = [{ name: '🌳' }, { name: '🌳' }, { name: '🌳' }, { name: '🌳' }, { name: '🌳' }];
 
 export default function Projects() {
   const [select, setSelect] = useState(null);
