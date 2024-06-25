@@ -4,7 +4,9 @@
   "description": "trye",
   "scripts": {
     "start": "node Server/server.js",
-    "build": "npm run build --prefix Client"
+    "build": "npm run build --prefix Client",
+    "install-client": "npm install --prefix Client",
+    "install-server": "npm install --prefix Server"
   },
   "author": "ltrha",
   "license": "ISC",
